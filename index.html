@@ -7,10 +7,32 @@
     <title>Etch A Sketch</title>
 </head>
 <body>
-    <div id="container">
+    <div class="grid" id="grid"> </div>
         <script>
-        const container = document.getElementById('container')
+            document.addEventListener('DOMContentLoaded', () => {
+                const gridContainer = document.getElementById('grid');
+
+        // Nested loop to create 256 (16 x 16) grid cells
+        for (let i = 0; i < 256; i++) {
+                const cell = document.createElement('div');
+                cell.classList.add('cell');
+                gridContainer.appendChild(cell);
+            }
+            const cells = document.querySelectorAll('.cell');
+
+            cells.forEach(item => {
+                item.addEventListener('mouseover', () => {
+                    item.classList.add('hovered');
+
+               cell.forEach(item => {
+                item.addEventListener('mouseout', () => {
+                    item.classList.remove('hovered');
+                });
+               });
+            });
+        });
+    });
+
         </script>
-    </div>
 </body>
 </html>
